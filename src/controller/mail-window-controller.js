@@ -77,7 +77,7 @@ class MailWindowController {
         nodeIntegration: true,
       },
     });
-
+      this.win.webContents.openDevTools();
     // and load the index.html of the app.
     mainWindowLoadedPromise = this.win.loadURL(outlookUrl, { userAgent: "Chrome" });
 
