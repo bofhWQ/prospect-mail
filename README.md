@@ -73,8 +73,9 @@ For other distributions please follow your specific steps.
 ```json
 {
   "urlMainWindow": "https://customurl.example/",
-  "urlsInternal": ["customurl.example"],
-  "urlsExternal": ["externalurls.example"],
+  "deeplinkUrls": ["customurl.example"],
+  "outlookUrls":["outlookurls.example"]
+ ,"externalUrls": ["externalurls.example"],
   "showWindowFrame": true
 }
 ```
@@ -88,10 +89,11 @@ Outlook.com account:
 ```json
 {
   "urlMainWindow": "https://outlook.live.com/mail",
-  "urlsInternal": ["outlook.com", "live.com"],
-  "urlsExternal": ["outlook.com", "live.com"]
+    "deeplinkUrls":["outlook.com", "live.com"],
+    "outlookUrls":["outlook.com", "live.com"]
 }
 ```
+
 
 ### Architecture components
 
