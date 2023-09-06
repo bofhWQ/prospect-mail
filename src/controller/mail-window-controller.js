@@ -1,15 +1,7 @@
-const {
-  app,
-  BrowserWindow,
-  shell,
-  ipcMain,
-  Menu,
-  MenuItem,
-  clipboard,
-} = require("electron");
-const settings = require("electron-settings");
-const getClientFile = require("./client-injector");
-const path = require("path");
+const { app, BrowserWindow, shell, ipcMain, Menu, MenuItem, clipboard } = require('electron')
+const settings = require('electron-settings')
+const CssInjector = require('../js/css-injector')
+const path = require('path')
 
 let outlookUrl;
 let deeplinkUrls;
@@ -24,6 +16,20 @@ let $this;
 const initialMinimization = {
   domReady: false,
 };
+
+//right click options
+contextMenu({
+    showLookUpSelection:true,
+    showSearchWithGoogle:true,
+    showCopyImage:true,
+    showCopyImageAddress:true,
+    showSaveImage:true,
+    showSaveLinkAs:true,
+    showInspectElement:true,
+    showLearnSpelling:true,
+    spellcheck:true
+
+});
 
 class MailWindowController {
   constructor() {
