@@ -27,7 +27,7 @@ class MailWindowController {
   constructor() {
     $this = this;
     this.init();
-    initialMinimization.domReady = global.cmdLine.indexOf("--minimized") != -1;
+    initialMinimization.domReady = global.cmdLine.indexOf("--minimized") !== -1;
   }
   reloadSettings() {
     // Get configurations.
@@ -257,18 +257,18 @@ class MailWindowController {
 
       for (const flag in params.editFlags) {
         let actionLabel = flag.substring(3); //remove "can"
-        if (flag == "canSelectAll") {
+        if (flag === "canSelectAll") {
           actionLabel = "Select all";
           if (!params.isEditable) {
             continue;
           }
         }
-        if (flag == "canUndo" || flag == "canRedo") {
+        if (flag === "canUndo" || flag === "canRedo") {
           if (!params.isEditable) {
             continue;
           }
         }
-        if (flag == "canEditRichly") {
+        if (flag === "canEditRichly") {
           continue;
         }
         if (params.editFlags[flag]) {
@@ -334,7 +334,7 @@ class MailWindowController {
         // If a "to" value is not specified then the "?" must still be present before key/value pairs
         // "?" is not required if no key/value pairs are present
         let toSeparatorIndex = mailToArg.indexOf("?")
-        if (toSeparatorIndex == -1) {
+        if (toSeparatorIndex === -1) {
             to = mailToArg
         } else {
             to = mailToArg.substring(0, toSeparatorIndex)
@@ -343,7 +343,7 @@ class MailWindowController {
             let kvPairs = kvPairsRaw.split("&")
             for (const kvPair of kvPairs) {
                 let kv = kvPair.split("=", 2)
-                if (kv.length != 2) continue
+                if (kv.length !== 2) continue
                 switch (kv[0].toLowerCase()) {
                     case "cc":
                         cc = kv[1]
